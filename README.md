@@ -20,3 +20,15 @@ A web application built with Next.js, FastAPI, PostgreSQL stack
   ```bash
   psql -h pg.neon.tech
   ```
+- Start a Poetry shell:
+  ```bash
+  poetry shell
+  ``` 
+- Initialize `alembic` with: 
+  ```bash
+  alembic init alembic
+  ```
+- In `alembic.ini`, find the line with `sqlalchemy.url = driver://user:pass@localhost/dbname`. Replace it with the value of `DATABASE_URL` from `env.txt`:
+  ```
+  sqlalchemy.url = postgres://nfp_boilerplate_user:password@ep-fun-trip-566065.us-east-2.aws.neon.tech/neondb
+  ```
