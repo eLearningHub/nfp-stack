@@ -52,4 +52,5 @@ A web application built with Next.js, FastAPI, PostgreSQL stack
 
 ## References
 
+- [Full Stack Next.js, FastAPI, PostgreSQL Tutorial](https://www.travisluong.com/full-stack-next-js-fastapi-postgresql-tutorial/)
 - [nfp-boilerplate](https://github.com/travisluong/nfp-boilerplate)
