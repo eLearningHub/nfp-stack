@@ -9,7 +9,7 @@ A web application built with Next.js, FastAPI, PostgreSQL stack
   poetry new app
   mv app backend
   cd backend
-  poetry add fastapi "uvicorn[standard]" gunicorn psycopg2 sqlalchemy alembic "databases[postgresql]" python-dotenv
+  poetry add fastapi "uvicorn[standard]" gunicorn psycopg2-binary sqlalchemy alembic "databases[postgresql]" python-dotenv
   ```
 - Create a Postgresql database on [neon.tech](https://neon.tech/) and download the `env.txt` file.
 - Install `psql`, a cli tool for communicating with Postgres databases with:
@@ -41,7 +41,11 @@ A web application built with Next.js, FastAPI, PostgreSQL stack
   
   config.set_main_option('sqlalchemy.url', os.environ.get("DATABASE_URL"))
   ```
-- Generate the first migration file.
+- Generate the first migration file:
   ```bash
   alembic revision -m "create notes table"
+  ```
+- To actually run the migration, run the same command without the --sql flag:
+  ```bash
+  alembic upgrade head
   ```
