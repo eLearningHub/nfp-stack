@@ -49,3 +49,7 @@ A web application built with Next.js, FastAPI, PostgreSQL stack
   ```bash
   alembic upgrade head
   ```
+
+## References
+
+- [nfp-boilerplate](https://github.com/travisluong/nfp-boilerplate)
