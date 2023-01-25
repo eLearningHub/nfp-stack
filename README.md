@@ -28,7 +28,20 @@ A web application built with Next.js, FastAPI, PostgreSQL stack
   ```bash
   alembic init alembic
   ```
-- In `alembic.ini`, find the line with `sqlalchemy.url = driver://user:pass@localhost/dbname`. Replace it with the value of `DATABASE_URL` from `env.txt`:
+- Define `DATABASE_URL` from `env.txt` as an environment variable:
   ```
-  sqlalchemy.url = postgres://nfp_boilerplate_user:password@ep-fun-trip-566065.us-east-2.aws.neon.tech/neondb
+  export DATABASE_URL=postgresql://nfp_boilerplate_user:password@ep-fun-trip-566065.us-east-2.aws.neon.tech/neondb
+  ```
+  Note that you need to change `postgres` to `postgresql`
+- Modify `alembic/env.py` by adding one line to set the `sqlalchemy.url` option:
+  ```python
+  # this is the Alembic Config object, which provides
+  # access to the values within the .ini file in use.
+  config = context.config
+  
+  config.set_main_option('sqlalchemy.url', os.environ.get("DATABASE_URL"))
+  ```
+- Generate the first migration file.
+  ```bash
+  alembic revision -m "create notes table"
   ```
